@@ -4,13 +4,13 @@ PROJECT: Website Sync Fetch
 LAST_UPDATED: 2026-10-03
 CURRENT_PHASE: Phase 1 - MVP Development
 CURRENT_MODULE: Core
-CURRENT_TASK: WSF-003 - Initialize and verify local Git repository
+CURRENT_TASK: WSF-004 - Connect repository to GitHub and publish baseline
 STATUS: COMPLETED
-LAST_COMPLETED_TASK: WSF-003
+LAST_COMPLETED_TASK: WSF-004
 CURRENT_BLOCKERS: None
 BUILD_STATUS: PASS
 TEST_STATUS: PASS
 FUNCTIONAL_QA_STATUS: NOT RUN
 LAST_VERIFIED_COMMIT: HEAD
-FILES_CHANGED_LAST_TASK: .gitignore, AGENTS.md, .idea/gradle.xml, .project-audit/*
-NEXT_ACTION: Connect repository to GitHub
+FILES_CHANGED_LAST_TASK: .project-audit/*
+NEXT_ACTION: Configure GitHub CI verification and test remote AI handoff.

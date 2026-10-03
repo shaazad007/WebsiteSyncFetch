@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2026-10-03 - Task WSF-004
+### Added
+- Connected local repository to GitHub (`https://github.com/shaazad007/WebsiteSyncFetch`).
+- Configured `origin` remote and pushed complete audited project baseline and audit logs to `origin/main`.
+
 ## [1.0.2] - 2026-10-03 - Task WSF-003
 ### Changed
 - Refined `.gitignore` to properly exclude Flutter/Dart build outputs and local configuration files.
