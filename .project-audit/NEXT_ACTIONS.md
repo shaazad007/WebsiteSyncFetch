@@ -2,8 +2,8 @@
 
 ## Recommended Actions
 
-1. **Configure GitHub CI Verification**:
-   - Set up GitHub Actions workflow for automated testing and static analysis (`flutter test`, `flutter analyze`).
+1. **Verify GitHub Actions CI Results**:
+   - Check GitHub repository Actions tab to confirm CI run status for `flutter-ci.yml`.
 
 2. **User Acceptance Testing (UAT)**:
    - Run the app on physical Android test device or emulator.

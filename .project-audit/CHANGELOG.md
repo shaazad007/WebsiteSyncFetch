@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2026-10-03 - Task WSF-005
+### Added
+- Created GitHub Actions CI workflow (`.github/workflows/flutter-ci.yml`) for automated dependency installation, formatting check, static analysis, unit/widget testing, and debug APK build.
+### Changed
+- Performed repository hygiene audit: removed generated `.dart_tool/` directories and local configuration `local.properties` from Git tracking using `git rm --cached`.
+
 ## [1.0.3] - 2026-10-03 - Task WSF-004
 ### Added
 - Connected local repository to GitHub (`https://github.com/shaazad007/WebsiteSyncFetch`).

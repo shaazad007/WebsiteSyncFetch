@@ -1,16 +1,17 @@
-# Build Status - Website Sync Fetch
+# Build & Verification Status - Website Sync Fetch
 
-## Latest Build Verification
-- **DATE**: 2026-10-03
-- **TASK_ID**: WSF-002
-- **COMMIT**: Uncommitted (.idea/gradle.xml)
+## Verification Summary (Task WSF-005)
 
-### Results Matrix
-| Command / Operation | Result | Details |
+| Verification Category | Status | Details |
 |---|---|---|
-| `Gradle Sync` | **PASS** | Gradle project synced successfully via Android Studio IDE |
-| `flutter analyze` | **PASS** | 0 issues found |
-| `flutter test` | **PASS** | 15/15 tests passed |
+| **GRADLE_SYNC** | **PASS** | Gradle project synced successfully via Android Studio IDE |
+| **FORMAT_CHECK** | **PASS** | `dart format --output=none --set-exit-if-changed .` passed with 0 formatting issues |
+| **ANALYZE** | **PASS** | `flutter analyze` passed with 0 issues |
+| **TEST** | **PASS** | `flutter test` passed (15/15 unit and widget tests passed) |
+| **ANDROID_APK_BUILD** | **PASS** | `flutter build apk --debug` built successfully |
+| **GITHUB_CI** | **PENDING / NOT VERIFIED** | GitHub Actions workflow `.github/workflows/flutter-ci.yml` added and pushed; waiting for remote runner execution |
+| **FUNCTIONAL_QA** | **NOT RUN** | No manual UI / device functional QA performed during WSF-005 |
 
 ### Output Artifacts
 - **Debug APK Location**: `build/app/outputs/flutter-apk/app-debug.apk`
+- **CI Workflow File**: `.github/workflows/flutter-ci.yml`

@@ -21,3 +21,8 @@
 - **Error**: `Directory 'C:\my-apps\WebsiteSyncFetch' does not contain a Gradle build.`
 - **Cause**: `.idea/gradle.xml` configured `externalProjectPath` as `$PROJECT_DIR$` instead of the Android subfolder `$PROJECT_DIR$/android`.
 - **Resolution**: Updated `externalProjectPath` in `.idea/gradle.xml` to `$PROJECT_DIR$/android` and triggered Gradle sync.
+
+### Issue 5: Tracked Generated Files in Repository Hygiene
+- **Error**: `.dart_tool/` and `local.properties` tracked in Git repository.
+- **Cause**: Initial commit tracked local/generated cache directories.
+- **Resolution**: Removed `.dart_tool/` and `local.properties` from Git index using `git rm --cached` and ensured robust `.gitignore` patterns.
