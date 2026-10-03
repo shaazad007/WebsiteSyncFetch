@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2026-10-03 - Task WSF-006
+### Added
+- Created root-level `AI_PROJECT_CONTEXT.md` as a universal public AI handoff file to support cross-agent recovery even when dot-prefixed folders (`.project-audit/`) cannot be accessed.
+- Updated `AGENTS.md` with explicit 4-level recovery hierarchy, evidence priority rules, and fallback behavior for restricted environments.
+### Changed
+- Replaced ambiguous commit references with actual git commit evidence (`fd420e0c09c04aae25b47408e8f2b836326151e8`).
+- Established CI synchronization guidelines specifying live GitHub Actions evidence overrides recorded snapshots.
+
 ## [1.0.4] - 2026-10-03 - Task WSF-005
 ### Added
 - Created GitHub Actions CI workflow (`.github/workflows/flutter-ci.yml`) for automated dependency installation, formatting check, static analysis, unit/widget testing, and debug APK build.

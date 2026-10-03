@@ -16,3 +16,8 @@
 - **Context**: SEO results table contains 11 columns which cannot fit natively on narrow mobile screens.
 - **Decision**: Wrap Material `DataTable` inside dual `SingleChildScrollView` widgets (horizontal and vertical directions).
 - **Status**: Approved & Implemented.
+
+### DEC-004: Root-Level AI Project Context (`AI_PROJECT_CONTEXT.md`) for Cross-Agent Recovery
+- **Context**: Some AI environments or browser agents cannot access dot-prefixed folders like `.project-audit/`, leading to context loss for new agents.
+- **Decision**: Introduce a public root-level `AI_PROJECT_CONTEXT.md` file adhering to a structured handoff schema, backed by explicit recovery hierarchy and fallback rules in `AGENTS.md`.
+- **Status**: Approved & Implemented.

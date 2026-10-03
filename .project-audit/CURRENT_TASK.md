@@ -1,14 +1,15 @@
 # Current Task - Website Sync Fetch
 
 ## Task Summary
-- **TASK_ID**: `WSF-005`
-- **TITLE**: Add independent GitHub CI verification and clean repository hygiene
+- **TASK_ID**: `WSF-006`
+- **TITLE**: Upgrade the project audit/handoff system for reliable cross-agent recovery
 - **STATUS**: COMPLETED
 - **ASSIGNEE**: AI Agent
 
 ## Requirements Checklist
-- [x] Repository hygiene audit: removed `.dart_tool/` and `local.properties` from Git tracking using `git rm --cached`.
-- [x] Created GitHub Actions CI workflow at `.github/workflows/flutter-ci.yml` supporting push and pull requests on `main`.
-- [x] Verified local steps: `flutter pub get`, `dart format`, `flutter analyze`, `flutter test`, `flutter build apk --debug`.
-- [x] Separated all verification statuses (`GRADLE_SYNC`, `FORMAT_CHECK`, `ANALYZE`, `TEST`, `ANDROID_APK_BUILD`, `GITHUB_CI`, `FUNCTIONAL_QA`).
-- [x] Updated project audit documentation and created session report.
+- [x] Created root-level `AI_PROJECT_CONTEXT.md` as public universal AI handoff file.
+- [x] Implemented actual commit SHA tracking (`LAST_VERIFIED_COMMIT_SHA`, `LAST_VERIFIED_COMMIT_SHORT`, `LAST_VERIFIED_COMMIT_MESSAGE`).
+- [x] Designed CI synchronization approach (live GitHub Actions evidence overrides recorded snapshots).
+- [x] Updated `AGENTS.md` with cross-agent recovery hierarchy (Levels 1-4), evidence priority, and fallback behavior.
+- [x] Ensured audit consistency across all files and verified phase/module status semantics.
+- [x] Verified repository with formatting, static analysis, unit/widget tests, and debug APK build.
