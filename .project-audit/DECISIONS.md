@@ -21,3 +21,8 @@
 - **Context**: Some AI environments or browser agents cannot access dot-prefixed folders like `.project-audit/`, leading to context loss for new agents.
 - **Decision**: Introduce a public root-level `AI_PROJECT_CONTEXT.md` file adhering to a structured handoff schema, backed by explicit recovery hierarchy and fallback rules in `AGENTS.md`.
 - **Status**: Approved & Implemented.
+
+### DEC-005: Universal README Recovery Capsule (`README.md`) & Source-of-Truth Governance
+- **Context**: Recovery can fail if dot folders (`.project-audit/`) or root AI context files (`AI_PROJECT_CONTEXT.md`) are missed or inaccessible. Hardcoded version numbers in documentation also risk becoming stale.
+- **Decision**: Embed a guaranteed minimum recovery capsule and agent instructions at Level 0 in `README.md`, enforce `pubspec.yaml`/`pubspec.lock` as the single source of truth for dependencies, and establish 10 Conflict Resolution Rules.
+- **Status**: Approved & Implemented.

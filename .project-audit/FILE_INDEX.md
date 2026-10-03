@@ -4,9 +4,11 @@
 
 ```
 WebsiteSyncFetch/
-├── AI_PROJECT_CONTEXT.md                # Universal public root-level AI handoff file
-├── AGENTS.md                            # Rules, recovery hierarchy, and instructions for AI agents
-├── pubspec.yaml                         # Flutter dependencies and assets config
+├── README.md                            # Universal README recovery capsule & human overview (Level 0 fallback)
+├── AI_PROJECT_CONTEXT.md                # Universal public root-level AI handoff file (Level 1)
+├── AGENTS.md                            # Rules, recovery hierarchy, and instructions for AI agents (Level 2)
+├── pubspec.yaml                         # Authoritative source for declared dependencies & SDK constraints
+├── pubspec.lock                         # Authoritative source for resolved dependency versions
 ├── .github/
 │   └── workflows/
 │       └── flutter-ci.yml               # GitHub Actions CI verification workflow
@@ -34,11 +36,11 @@ WebsiteSyncFetch/
     ├── ARCHITECTURE.md                  # Architecture & data flow diagrams
     ├── MODULES.md                       # Detailed list of project modules
     ├── PHASES.md                        # Phase breakdown & roadmap
-    ├── CURRENT_TASK.md                  # Details of task WSF-006
+    ├── CURRENT_TASK.md                  # Details of task WSF-007
     ├── CHANGELOG.md                     # Revision history
     ├── BUILD_STATUS.md                  # Build matrix & verification status
     ├── ERRORS.md                        # Error log & resolution guide
-    ├── DECISIONS.md                     # Architectural decision record (includes DEC-004)
+    ├── DECISIONS.md                     # Architectural decision record (includes DEC-005)
     ├── FILE_INDEX.md                    # Project file index
     ├── NEXT_ACTIONS.md                  # Recommended future tasks
     └── sessions/
@@ -47,5 +49,6 @@ WebsiteSyncFetch/
         ├── 2026-10-03_WSF-003_session_report.md
         ├── 2026-10-03_WSF-004_session_report.md
         ├── 2026-10-03_WSF-005_session_report.md
-        └── 2026-10-03_WSF-006_session_report.md
+        ├── 2026-10-03_WSF-006_session_report.md
+        └── 2026-10-03_WSF-007_session_report.md
 ```

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.6] - 2026-10-03 - Task WSF-007
+### Added
+- Added universal `README.md` recovery capsule and AI agent instructions (Level 0 fallback) so projects can be recovered even when dot-prefixed folders or root AI contexts are missed.
+- Established authoritative dependency source-of-truth rules (`pubspec.yaml` for declared dependencies/constraints, `pubspec.lock` for resolved versions) and removed hardcoded stale dependency version numbers from documentation.
+- Added comprehensive Source-of-Truth Matrix and 10 Conflict Resolution Rules to `AI_PROJECT_CONTEXT.md` and `AGENTS.md`.
+- Updated recovery hierarchy to Level 0 (README) through Level 4 (Direct Verification) and instituted Snapshot Maintenance Rule for future tasks.
+
 ## [1.0.5] - 2026-10-03 - Task WSF-006
 ### Added
 - Created root-level `AI_PROJECT_CONTEXT.md` as a universal public AI handoff file to support cross-agent recovery even when dot-prefixed folders (`.project-audit/`) cannot be accessed.
@@ -10,7 +17,7 @@ All notable changes to this project will be documented in this file.
 - Replaced ambiguous commit references with actual git commit evidence (`fd420e0c09c04aae25b47408e8f2b836326151e8`).
 - Established CI synchronization guidelines specifying live GitHub Actions evidence overrides recorded snapshots.
 
-## [1.0.4] - 2026-10-03 - Task WSF-005
+## [1.0.4] - 2026-10-03 - Task WSF-004
 ### Added
 - Created GitHub Actions CI workflow (`.github/workflows/flutter-ci.yml`) for automated dependency installation, formatting check, static analysis, unit/widget testing, and debug APK build.
 ### Changed

@@ -1,0 +1,40 @@
+# Session Report: WSF-007
+
+- **TASK_ID**: WSF-007
+- **START_TIME**: 2026-10-03T18:10:00Z
+- **END_TIME**: 2026-10-03T18:30:00Z
+- **REQUESTED_WORK**: Add universal README recovery capsule and eliminate stale duplicated project context.
+- **FILES_CREATED**:
+  - `.project-audit/sessions/2026-10-03_WSF-007_session_report.md`
+- **FILES_MODIFIED**:
+  - `README.md`
+  - `AI_PROJECT_CONTEXT.md`
+  - `AGENTS.md`
+  - `.project-audit/PROJECT_STATE.md`
+  - `.project-audit/CURRENT_TASK.md`
+  - `.project-audit/CHANGELOG.md`
+  - `.project-audit/BUILD_STATUS.md`
+  - `.project-audit/ERRORS.md`
+  - `.project-audit/DECISIONS.md`
+  - `.project-audit/FILE_INDEX.md`
+  - `.project-audit/NEXT_ACTIONS.md`
+- **FILES_DELETED**: None
+- **IMPLEMENTATION_SUMMARY**:
+  - Added guaranteed minimum recovery snapshot and AI recovery instructions to `README.md` (Level 0 universal fallback) so recovery succeeds even when dot-prefixed folders (`.project-audit/`) or root AI context (`AI_PROJECT_CONTEXT.md`) are inaccessible.
+  - Eliminated stale duplicated dependency version numbers from `AI_PROJECT_CONTEXT.md` and established explicit dependency source-of-truth rules (`pubspec.yaml` for declared dependencies/constraints, `pubspec.lock` for resolved versions).
+  - Added comprehensive Source-of-Truth Matrix and 10 Conflict Resolution Rules to `AI_PROJECT_CONTEXT.md` and `AGENTS.md`.
+  - Updated AGENTS recovery discovery hierarchy (Level 0 through Level 4) and instituted the Snapshot Maintenance Rule.
+  - Verified application code integrity (`lib/`, `test/`, and android configuration unchanged).
+- **GIT_DIFF_SUMMARY**: Added README recovery capsule, updated AI context and recovery rules, updated project audit records.
+- **GRADLE_SYNC**: PASS
+- **FORMAT_CHECK**: PASS
+- **ANALYZE**: PASS
+- **TEST**: PASS
+- **ANDROID_APK_BUILD**: PASS
+- **GITHUB_CI**: PENDING / NOT VERIFIED (Live CI evidence overrides snapshot)
+- **FUNCTIONAL_QA_RESULT**: NOT_RUN
+- **ERRORS_FOUND**: None
+- **ERRORS_FIXED**: Stale duplicated dependency version numbers in documentation replaced by authoritative manifest pointers.
+- **REMAINING_ISSUES**: None
+- **LAST_COMMIT**: Pending WSF-007 commit (`docs: add universal AI recovery snapshot`)
+- **RECOMMENDED_NEXT_TASK**: Push WSF-007 commit to origin/main and verify GitHub Actions CI run.

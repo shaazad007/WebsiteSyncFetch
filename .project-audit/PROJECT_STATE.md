@@ -4,9 +4,9 @@ PROJECT: Website Sync Fetch
 LAST_UPDATED: 2026-10-03
 CURRENT_PHASE: Phase 1 - MVP Development
 CURRENT_MODULE: Core
-CURRENT_TASK: WSF-006 - Upgrade project audit/handoff system for reliable cross-agent recovery
+CURRENT_TASK: WSF-007 - Add universal README recovery capsule and eliminate stale duplicated project context
 STATUS: COMPLETED
-LAST_COMPLETED_TASK: WSF-006
+LAST_COMPLETED_TASK: WSF-007
 CURRENT_BLOCKERS: None
 GRADLE_SYNC: PASS
 FORMAT_CHECK: PASS
@@ -15,8 +15,7 @@ TEST: PASS
 ANDROID_APK_BUILD: PASS
 GITHUB_CI: PENDING / NOT VERIFIED (Live CI evidence overrides snapshot)
 FUNCTIONAL_QA_STATUS: NOT_RUN
-LAST_VERIFIED_COMMIT_SHA: fd420e0c09c04aae25b47408e8f2b836326151e8
-LAST_VERIFIED_COMMIT_SHORT: fd420e0
-LAST_VERIFIED_COMMIT_MESSAGE: ci: add Flutter verification workflow
-FILES_CHANGED_LAST_TASK: AI_PROJECT_CONTEXT.md, AGENTS.md, .project-audit/*
-NEXT_ACTION: Push WSF-006 changes to GitHub, verify GitHub Actions CI run, and perform UAT.
+CONTEXT_BASE_COMMIT: 127a2ee269baf8c4ae392980818102cf4f551e1e (short: 127a2ee)
+LATEST_PROJECT_COMMIT: 127a2ee269baf8c4ae392980818102cf4f551e1e (short: 127a2ee)
+FILES_CHANGED_LAST_TASK: README.md, AI_PROJECT_CONTEXT.md, AGENTS.md, .project-audit/*
+NEXT_ACTION: Push WSF-007 commit to origin/main, verify live GitHub Actions CI run, and perform UAT.

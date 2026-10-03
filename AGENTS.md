@@ -7,7 +7,7 @@ After EVERY future coding task, any AI agent working on this codebase MUST perfo
 3. Run `flutter analyze`
 4. Run relevant tests (`flutter test`)
 5. Run an appropriate build when practical (`flutter build apk --debug`)
-6. Update root `AI_PROJECT_CONTEXT.md` (when applicable per Context Maintenance Rule)
+6. Update BOTH root `README.md` recovery snapshot AND root `AI_PROJECT_CONTEXT.md` (Snapshot Maintenance Rule)
 7. Update `.project-audit/PROJECT_STATE.md`
 8. Update `.project-audit/CURRENT_TASK.md`
 9. Append to `.project-audit/CHANGELOG.md`
@@ -21,56 +21,56 @@ After EVERY future coding task, any AI agent working on this codebase MUST perfo
 
 ---
 
-## Cross-Agent Recovery Hierarchy (Mandatory)
+## Recovery Discovery Order (Hierarchy)
 
 Every new AI agent recovering project context must inspect sources in this precise order:
 
-- **Level 1**: Read root `AI_PROJECT_CONTEXT.md` (universal public AI handoff file).
-- **Level 2**: If accessible, read `.project-audit/` files (`AI_ENTRY_POINT.md`, `PROJECT_STATE.md`, `ARCHITECTURE.md`, `MODULES.md`, `PHASES.md`, `CURRENT_TASK.md`, `BUILD_STATUS.md`, `ERRORS.md`, `DECISIONS.md`, `NEXT_ACTIONS.md`).
-- **Level 3**: Cross-check claims against repository source code (`lib/`), `pubspec.yaml`, tests (`test/`), and git history (`git log`).
-- **Level 4**: Cross-check automated verification against GitHub Actions workflow (`.github/workflows/flutter-ci.yml`) and remote GitHub Actions run status.
+- **Level 0 — Universal Fallback**: `README.md` (guaranteed minimum recovery surface).
+- **Level 1 — Root AI Context**: `AI_PROJECT_CONTEXT.md` (structured snapshot and handoff).
+- **Level 2 — Agent Operating Rules**: `AGENTS.md` (audit guidelines and recovery rules).
+- **Level 3 — Detailed Audit**: `.project-audit/` (architectural records, history, session reports).
+- **Level 4 — Direct Verification**: Source code (`lib/`), `pubspec.yaml`, `pubspec.lock`, tests (`test/`), Git history (`git log`), GitHub Actions workflow & runs.
 
-### Evidence Priority
-When resolving conflicting claims about current state, prioritize newer direct evidence:
-1. Current source/repository evidence
-2. Git commit/history evidence
-3. Live GitHub Actions evidence for CI/build/test claims (Live CI evidence overrides snapshots)
-4. Root `AI_PROJECT_CONTEXT.md`
-5. Detailed `.project-audit/` records
-6. Historical session reports
+---
+
+## Conflict Resolution & Source-of-Truth Rules
+
+1. **Never silently choose between contradictory evidence.**
+2. **Current Facts**: Newer direct repository evidence normally supersedes older snapshots.
+3. **Declared Dependencies & SDK**: `pubspec.yaml` is the **authoritative source**.
+4. **Resolved Package Versions**: `pubspec.lock` is the **authoritative source**.
+5. **Git Commit Value**: Git repository (`git rev-parse HEAD`) overrides documented commit values.
+6. **CI State**: Live GitHub Actions evidence overrides older recorded CI snapshots.
+7. **Functional QA**: A successful CI workflow does **not** override `FUNCTIONAL_QA_STATUS: NOT_RUN` unless manual functional QA was actually executed.
+8. **Architecture**: Actual source code (`lib/`) overrides stale architecture documentation when describing implementation.
+9. **Historical Records**: Historical audit records (`.project-audit/CHANGELOG.md`, session reports) must not be rewritten; update current snapshot files instead.
+10. **Reporting Contradictions**: When a contradiction is discovered, report: `DOCUMENTED_VALUE`, `VERIFIED_VALUE`, `AUTHORITATIVE_SOURCE`, `ACTION_TAKEN`.
 
 ---
 
 ## Fallback Behavior
 
 - **If `.project-audit/` cannot be accessed** (e.g. environment dot-folder restriction):
-  - Do not stop project recovery. Use root `AI_PROJECT_CONTEXT.md`.
-  - Cross-check against accessible repository evidence (`lib/`, `test/`, `pubspec.yaml`).
+  - Do not stop project recovery. Use root `README.md` and `AI_PROJECT_CONTEXT.md`.
+  - Cross-check against accessible repository evidence (`lib/`, `test/`, `pubspec.yaml`, `pubspec.lock`).
   - Mark unavailable details as `NOT_VERIFIED` or `UNKNOWN`.
 - **If Git history cannot be accessed**:
   - Continue using accessible context and source evidence.
   - Clearly mark commit-history claims as `NOT_VERIFIED`.
 - **If GitHub Actions cannot be accessed**:
-  - Use recorded CI snapshot from `AI_PROJECT_CONTEXT.md` / `.project-audit/BUILD_STATUS.md` and label it as `RECORDED` (not independently verified).
+  - Use recorded CI snapshot from `README.md` / `AI_PROJECT_CONTEXT.md` and label it as `RECORDED` (not independently verified).
 - **If source files cannot be accessed**:
   - Do not invent architecture details; distinguish `DOCUMENTED` from `VERIFIED`.
 
 ---
 
-## Context Maintenance Rule
+## Snapshot Maintenance Rule
 
-After every future development task, the agent must update root `AI_PROJECT_CONTEXT.md` if the task changes any of:
-- current task
-- module status
-- phase status
-- architecture
-- source locations
-- errors/blockers
-- verification status
-- development stopping point
-- next action
+After every future meaningful task, if project state changes, the agent must update **BOTH**:
+1. `README.md` recovery snapshot
+2. `AI_PROJECT_CONTEXT.md`
 
-Root `AI_PROJECT_CONTEXT.md` must remain concise enough for a new AI to read quickly. Detailed historical records belong under `.project-audit/`.
+Relevant changes include task completion, new current task, module status, phase status, build/test status, CI state, functional QA state, blockers, architecture, stopping point, or next action. Do NOT rewrite unrelated human-facing README sections. Detailed history remains under `.project-audit/`.
 
 ---
 

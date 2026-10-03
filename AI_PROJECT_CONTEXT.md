@@ -12,11 +12,14 @@ Website Sync Fetch is a Flutter desktop and mobile application designed to fetch
 ## Platform
 Cross-platform Flutter (Android targeted, Desktop/Mobile compatible). Debug APK build verified.
 
-## Technology Stack
+## Technology Stack & Dependencies
 - **Framework**: Flutter (Dart)
-- **Dependencies**: `http` (^1.2.0), `html` (^0.15.4)
-- **Testing**: `flutter_test`, widget testing, unit testing
-- **Build System**: Gradle 8.10, Android Gradle Plugin 9.1.0, Kotlin 2.4.0
+- **Core Packages**: HTTP networking and HTML DOM parsing packages (`http`, `html`).
+- **Testing**: `flutter_test`, widget testing, unit testing.
+- **Build System**: Gradle 8.10, Android Gradle Plugin 9.1.0, Kotlin 2.4.0.
+- **Dependency Source-of-Truth Rules**:
+  - Declared dependencies, package constraints, and SDK versions: **Authoritative Source is `pubspec.yaml`**.
+  - Resolved dependency versions: **Authoritative Source is `pubspec.lock`**.
 
 ## Architecture
 Clean architecture emphasizing separation of concerns:
@@ -50,10 +53,10 @@ PENDING_PHASES: 1 (Phase 2 - Advanced Features: Offline persistence, CSV/JSON ex
 - **Phase 2 - Advanced Features**: NOT_STARTED (Planned persistence and export features).
 
 ## Current Development State
-- CURRENT_TASK: WSF-006 - Upgrade project audit/handoff system for reliable cross-agent recovery
-- LAST_COMPLETED_TASK: WSF-005 - Add independent GitHub CI verification and clean repository hygiene
+- CURRENT_TASK: WSF-007 - Add universal README recovery capsule and eliminate stale duplicated project context
+- LAST_COMPLETED_TASK: WSF-006 - Upgrade project audit/handoff system for reliable cross-agent recovery
 - CURRENT_STATUS: COMPLETED
-- DEVELOPMENT_STOPPING_POINT: WSF-006 implementation ready for commit and push.
+- DEVELOPMENT_STOPPING_POINT: WSF-007 implementation ready for commit and push.
 
 ## Verification Status
 - FORMAT_STATUS: PASS
@@ -61,14 +64,14 @@ PENDING_PHASES: 1 (Phase 2 - Advanced Features: Offline persistence, CSV/JSON ex
 - TEST_STATUS: PASS
 - ANDROID_APK_BUILD_STATUS: PASS
 - FUNCTIONAL_QA_STATUS: NOT_RUN (Requires live device/emulator UAT)
-- GITHUB_CI_STATUS: PENDING / NOT VERIFIED (Recorded snapshot; live GitHub Actions execution overrides this snapshot if newer)
+- LATEST_KNOWN_GITHUB_CI_STATUS: PENDING / NOT VERIFIED (Recorded snapshot; live GitHub Actions execution overrides this snapshot if newer)
 
 *Note on CI*: If live GitHub Actions evidence is newer than the recorded snapshot, **LIVE CI EVIDENCE OVERRIDES THE SNAPSHOT**.
 
 ## Git State
-- LAST_VERIFIED_COMMIT_SHA: `fd420e0c09c04aae25b47408e8f2b836326151e8`
-- LAST_VERIFIED_COMMIT_SHORT: `fd420e0`
-- LAST_VERIFIED_COMMIT_MESSAGE: `ci: add Flutter verification workflow`
+- CONTEXT_BASE_COMMIT: `127a2ee269baf8c4ae392980818102cf4f551e1e` (short: `127a2ee`)
+- LATEST_PROJECT_COMMIT: `127a2ee269baf8c4ae392980818102cf4f551e1e` (short: `127a2ee`)
+- LAST_VERIFIED_COMMIT_MESSAGE: `docs: add cross-agent project recovery context`
 
 ## Known Errors / Blockers
 - None. All previous build and selector parsing issues have been resolved.
@@ -80,34 +83,51 @@ PENDING_PHASES: 1 (Phase 2 - Advanced Features: Offline persistence, CSV/JSON ex
 - **WSF-004**: Connected repository to GitHub (`https://github.com/shaazad007/WebsiteSyncFetch`) and published baseline.
 - **WSF-005**: Added GitHub Actions CI workflow and cleaned repository hygiene (`git rm --cached` on `.dart_tool/` and `local.properties`).
 - **WSF-006**: Upgraded cross-agent project recovery system with root `AI_PROJECT_CONTEXT.md`, actual commit SHA tracking, and fallback rules.
+- **WSF-007**: Added universal README recovery capsule and source-of-truth governance.
 
 ## Next Recommended Action
-1. Push WSF-006 commit to GitHub.
+1. Push WSF-007 commit to GitHub.
 2. Verify live GitHub Actions CI run results.
 3. Perform User Acceptance Testing (UAT) on an Android device or emulator.
 
-## Detailed Audit Locations
-For agents with access to dot-prefixed directories, detailed records are available under:
-- `.project-audit/AI_ENTRY_POINT.md`
-- `.project-audit/PROJECT_STATE.md`
-- `.project-audit/ARCHITECTURE.md`
-- `.project-audit/MODULES.md`
-- `.project-audit/PHASES.md`
-- `.project-audit/BUILD_STATUS.md`
-- `.project-audit/ERRORS.md`
-- `.project-audit/DECISIONS.md`
-- `.project-audit/NEXT_ACTIONS.md`
-- `.project-audit/sessions/`
+## Source-of-Truth Matrix
+| Domain / Fact Type | Primary Authoritative Source | Detailed Documentation |
+|---|---|---|
+| **Project Purpose / Scope** | `README.md` + verified source behavior | `.project-audit/PROJECT_OVERVIEW.md` |
+| **Current Project Snapshot** | `README.md` recovery snapshot & `AI_PROJECT_CONTEXT.md` | `.project-audit/PROJECT_STATE.md` |
+| **Application Architecture** | Actual source tree (`lib/`) | `.project-audit/ARCHITECTURE.md` |
+| **Declared Dependencies / SDK** | `pubspec.yaml` | `pubspec.yaml` |
+| **Resolved Dependencies** | `pubspec.lock` | `pubspec.lock` |
+| **Current Git Commit** | Git repository (`git rev-parse HEAD`) | Git history (`git log`) |
+| **CI Result** | Live GitHub Actions workflow execution | GitHub Actions tab |
+| **Static Analysis** | Latest actual `flutter analyze` execution | `.project-audit/BUILD_STATUS.md` |
+| **Automated Tests** | Latest actual `flutter test` execution | `.project-audit/BUILD_STATUS.md` |
+| **Android Build** | Latest actual `flutter build apk` execution | `.project-audit/BUILD_STATUS.md` |
+| **Functional QA** | Documented manual/integration QA evidence | Session reports |
+| **Module / Phase Status** | Current repo evidence + `AI_PROJECT_CONTEXT.md` | `.project-audit/MODULES.md`, `PHASES.md` |
+| **Historical Tasks** | `.project-audit/CHANGELOG.md` | `.project-audit/sessions/` |
 
-## Recovery Rules & Cross-Agent Fallback
-New AI agents must follow this recovery hierarchy:
-1. **Level 1**: Read root `AI_PROJECT_CONTEXT.md`.
-2. **Level 2**: If accessible, read `.project-audit/` records.
-3. **Level 3**: Cross-check claims against source code (`lib/`), `pubspec.yaml`, tests (`test/`), and git history (`git log`).
-4. **Level 4**: Cross-check automated verification against GitHub Actions workflow (`.github/workflows/flutter-ci.yml`) and remote run status.
+## Conflict Resolution Rules
+1. Never silently choose between contradictory evidence.
+2. For current facts, newer direct repository evidence normally supersedes older snapshots.
+3. `pubspec.yaml` overrides documentation for declared dependency versions and SDK constraints.
+4. `pubspec.lock` overrides documentation for resolved package versions.
+5. Git repository evidence overrides a documented commit value.
+6. Live GitHub Actions evidence overrides an older recorded CI snapshot.
+7. A successful CI workflow does **not** override `FUNCTIONAL_QA_STATUS: NOT_RUN` unless functional QA was actually part of that workflow.
+8. Source code overrides stale architecture documentation when describing what is actually implemented.
+9. Historical audit records must not be rewritten merely because the current state changed; update current snapshot files instead.
+10. When a contradiction is discovered, report: `DOCUMENTED_VALUE`, `VERIFIED_VALUE`, `AUTHORITATIVE_SOURCE`, `ACTION_TAKEN`.
+
+## Recovery Discovery Order (AGENTS.md Hierarchy)
+- **Level 0 (Universal Fallback)**: `README.md`
+- **Level 1 (Root AI Context)**: `AI_PROJECT_CONTEXT.md`
+- **Level 2 (Agent Operating Rules)**: `AGENTS.md`
+- **Level 3 (Detailed Audit)**: `.project-audit/`
+- **Level 4 (Direct Verification)**: Source code (`lib/`), `pubspec.yaml`, `pubspec.lock`, tests (`test/`), Git history, GitHub Actions.
 
 ### Fallback Behavior:
-- If `.project-audit/` cannot be accessed: Use `AI_PROJECT_CONTEXT.md`, cross-check against repository source files, and mark unavailable details `NOT_VERIFIED` or `UNKNOWN`.
+- If `.project-audit/` cannot be accessed: Use `README.md` and `AI_PROJECT_CONTEXT.md`, cross-check against repository source files, and mark unavailable details `NOT_VERIFIED` or `UNKNOWN`.
 - If Git history cannot be accessed: Use accessible source context and mark commit-history claims `NOT_VERIFIED`.
 - If GitHub Actions cannot be accessed: Use recorded CI snapshot and label it `RECORDED`, not independently verified.
 - If source files cannot be accessed: Do not invent architecture details; distinguish `DOCUMENTED` from `VERIFIED`.
@@ -115,4 +135,4 @@ New AI agents must follow this recovery hierarchy:
 ## Context Metadata
 - CONTEXT_SCHEMA_VERSION: 1.0
 - CONTEXT_LAST_UPDATED: 2026-10-03
-- CONTEXT_GENERATED_FROM_COMMIT: fd420e0c09c04aae25b47408e8f2b836326151e8
+- CONTEXT_GENERATED_FROM_COMMIT: 127a2ee269baf8c4ae392980818102cf4f551e1e

@@ -26,3 +26,8 @@
 - **Error**: `.dart_tool/` and `local.properties` tracked in Git repository.
 - **Cause**: Initial commit tracked local/generated cache directories.
 - **Resolution**: Removed `.dart_tool/` and `local.properties` from Git index using `git rm --cached` and ensured robust `.gitignore` patterns.
+
+### Issue 6: Stale Duplicated Dependency Versions in Documentation
+- **Error**: Hardcoded version constraints (`^1.2.0`, etc.) in documentation files becoming out of sync with manifests.
+- **Cause**: Duplicate version documentation across files.
+- **Resolution**: Implemented Dependency Source-of-Truth Rule designating `pubspec.yaml` as authoritative for declared dependencies and `pubspec.lock` for resolved versions.
