@@ -16,3 +16,8 @@
 - **Error**: `com.android.prefs.AndroidLocationsException: Several environment variables... contain different paths...`
 - **Cause**: Conflicts when both `ANDROID_PREFS_ROOT` and `ANDROID_USER_HOME` environment variables are present.
 - **Resolution**: Unset `ANDROID_PREFS_ROOT` prior to invoking `flutter build apk --debug`.
+
+### Issue 4: Android Studio Gradle Sync Failure on Root Directory
+- **Error**: `Directory 'C:\my-apps\WebsiteSyncFetch' does not contain a Gradle build.`
+- **Cause**: `.idea/gradle.xml` configured `externalProjectPath` as `$PROJECT_DIR$` instead of the Android subfolder `$PROJECT_DIR$/android`.
+- **Resolution**: Updated `externalProjectPath` in `.idea/gradle.xml` to `$PROJECT_DIR$/android` and triggered Gradle sync.

@@ -1,8 +1,20 @@
-.gradle
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+
+# Local configuration & Secrets
+local.properties
+*.keystore
+*.jks
+key.properties
+
+# Gradle
+.gradle/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -13,33 +25,13 @@ build/
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
 ### Kotlin ###
 .kotlin
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
+### Mac OS / OS artifacts ###
 .DS_Store
+Thumbs.db

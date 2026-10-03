@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2026-10-03 - Task WSF-003
+### Changed
+- Refined `.gitignore` to properly exclude Flutter/Dart build outputs and local configuration files.
+- Updated `AGENTS.md` with enhanced audit guidelines for single-source verification, distinguishing NOT RUN from PASS, and separating build/test/manual QA.
+- Established local Git repository baseline commit `chore: establish Website Sync Fetch audited baseline`.
+
+## [1.0.1] - 2026-10-03 - Task WSF-002
+### Fixed
+- Fixed Android Studio Gradle project sync error by updating `externalProjectPath` in `.idea/gradle.xml` from `$PROJECT_DIR$` to `$PROJECT_DIR$/android`.
+- Verified successful Gradle sync and clean Dart/Flutter test and static analysis execution.
+
 ## [1.0.0] - 2026-10-03 - Task WSF-001
 ### Added
 - Initialized Flutter Android project with `http` and `html` dependencies.
